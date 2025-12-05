@@ -1,7 +1,7 @@
 
 // Instruction Memory
 // =======================
-module Instruction_Mem(clk, reset, read_address, instruction_out);
+module Instruction_Memory(clk, reset, read_address, instruction_out);
     input clk, reset;
     input [31:0] read_address;
     output [31:0] instruction_out;
