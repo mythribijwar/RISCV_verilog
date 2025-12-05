@@ -1,36 +1,59 @@
-
-// Register File
+// ======================= 
+// Register File 
 // =======================
 module Reg_File(clk, reset, RegWrite, Rs1, Rs2, Rd, Write_data, read_data1, read_data2);
     input clk, reset, RegWrite;
     input [4:0] Rs1, Rs2, Rd;
     input [31:0] Write_data;
     output [31:0] read_data1, read_data2;
+
     integer k;
     reg [31:0] Registers[31:0];
-   
 
-    initial begin
-        Registers[0] = 0; Registers[1] = 4; Registers[2] = 2; Registers[3] = 24;
-        Registers[4] = 4; Registers[5] = 1; Registers[6] = 44; Registers[7] = 4;
-        Registers[8] = 2; Registers[9] = 1; Registers[10] = 23; Registers[11] = 4;
-        Registers[12] = 90; Registers[13] = 10; Registers[14] = 30; Registers[15] = 20;
-        Registers[16] = 40; Registers[17] = 30; Registers[18] = 60; Registers[19] = 70;
-        Registers[20] = 80; Registers[21] = 80; Registers[22] = 90; Registers[23] = 70;
-        Registers[24] = 60; Registers[25] = 65; Registers[26] = 4; Registers[27] = 32;
-        Registers[28] = 12; Registers[29] = 34; Registers[30] = 5; Registers[31] = 10;
-    end
-
-    always @(posedge clk) begin
+    // Reset will reload initial values
+    always @(posedge clk or posedge reset) begin
         if (reset) begin
-            for (k = 0; k < 32; k = k + 1)
-                Registers[k] <= 32'b00;
-        end
-        else if (RegWrite) begin
-            Registers[Rd] <= Write_data;
+            Registers[0]  <= 0;
+            Registers[1]  <= 4;
+            Registers[2]  <= 2;
+            Registers[3]  <= 24;
+            Registers[4]  <= 4;
+            Registers[5]  <= 1;
+            Registers[6]  <= 44;
+            Registers[7]  <= 4;
+            Registers[8]  <= 4;
+            Registers[9]  <= 1;
+            Registers[10] <= 23;
+            Registers[11] <= 4;
+            Registers[12] <= 90;
+            Registers[13] <= 10;
+            Registers[14] <= 30;
+            Registers[15] <= 20;
+            Registers[16] <= 40;
+            Registers[17] <= 30;
+            Registers[18] <= 60;
+            Registers[19] <= 70;
+            Registers[20] <= 80;
+            Registers[21] <= 80;
+            Registers[22] <= 90;
+            Registers[23] <= 70;
+            Registers[24] <= 60;
+            Registers[25] <= 65;
+            Registers[26] <= 4;
+            Registers[27] <= 32;
+            Registers[28] <= 12;
+            Registers[29] <= 34;
+            Registers[30] <= 5;
+            Registers[31] <= 10;
+        end 
+
+        else if (RegWrite && Rd != 0) begin
+            Registers[Rd] <= Write_data;   // Write only when RegWrite=1
         end
     end
 
+    // Read ports
     assign read_data1 = Registers[Rs1];
     assign read_data2 = Registers[Rs2];
+
 endmodule
