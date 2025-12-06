@@ -3,6 +3,8 @@
 
 This project implements a single-cycle RISC-V processor (RV32I subset) in Verilog, based on the classic architecture used in computer organization (similar to Patterson & Hennessy). In a single-cycle design, every instruction executes completely in one clock cycle,
 
+![main design](https://github.com/mythribijwar/RISCV_verilog/blob/06c942e8f8d2580b80daf13cce5fd1a8c690ae2d/Single_Cycle/Pictures/IMG_20251206_163438.jpg)
+
 ## 🔶 1. Overview of the Datapath
 
 The processor executes one instruction per cycle by flowing through the following hardware blocks:
