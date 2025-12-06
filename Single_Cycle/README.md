@@ -55,4 +55,8 @@ Each cycle performs:
 
 
 7. Branch logic updates PC
-8. 
+![img alt](https://github.com/mythribijwar/RISCV_verilog/blob/dd63c18358f0e4e28693abf6e65deb856376518f/Single_Cycle/Pictures/IMG_20251206_163542.jpg)
+![img alt](https://github.com/mythribijwar/RISCV_verilog/blob/dd63c18358f0e4e28693abf6e65deb856376518f/Single_Cycle/Pictures/IMG_20251206_163451.jpg)
+![img alt](https://github.com/mythribijwar/RISCV_verilog/blob/dd63c18358f0e4e28693abf6e65deb856376518f/Single_Cycle/Pictures/IMG_20251206_163505.jpg)
+![img alt](
+   
