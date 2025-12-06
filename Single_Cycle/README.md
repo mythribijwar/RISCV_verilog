@@ -8,26 +8,26 @@ This project implements a single-cycle RISC-V processor (RV32I subset) in Verilo
 
 The processor executes one instruction per cycle by flowing through the following hardware blocks:
 
-#### Program Counter (PC)
+1.Program Counter (PC)
 Holds the address of the current instruction. It increments by 4 or branches to a target address.
 
-#### Instruction Memory
+2.Instruction Memory
 Reads a 32-bit instruction using the PC value.
 
-#### Control Unit
+3.Control Unit
 Decodes the opcode (instr[6:0]) and generates control signals:
 RegWrite, ALUSrc, MemRead, MemWrite, MemtoReg, Branch, ALUOp.
 
-#### Register File
+4.Register File
 Reads two registers (rs1, rs2) and writes to one (rd) when enabled.
 
-#### Immediate Generator
+5.Immediate Generator
 Extracts and sign-extends immediates for I-type, S-type, and SB-type instructions.
 
-#### ALU + ALU Control
+6.ALU + ALU Control
 Performs arithmetic/logic operations (add, sub, and, or) based on ALUOp, funct3, funct7.
 
-#### Data Memory
+7.Data Memory
 Used for lw and sw instructions.
 
 
